@@ -1,34 +1,30 @@
-Certainly! Here is the entire `README.md` content in a single continuous format for easy copy-pasting:
 
-```markdown
 # yifan_ml_docker_lite
 
-A lightweight Dockerfile for basic machine learning purposes, designed to set up a development environment with essential tools and libraries.
+A lightweight Docker environment for basic machine learning, equipped with essential tools and libraries to facilitate development.
 
 ## Getting Started
 
-These instructions will help you set up and run the Docker environment on your local machine.
+These instructions will guide you through setting up and running the Docker environment on your local machine.
 
 ### Prerequisites
 
-Before you begin, ensure you have the following installed on your machine:
-
-- [Docker](https://docs.docker.com/get-docker/)
+Before you start, ensure you have Docker installed on your machine. You can download and install Docker from [here](https://docs.docker.com/get-docker/).
 
 ### Building the Docker Image
 
 1. **Clone the Repository**
 
-   First, clone this repository to your local machine using Git:
+   Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/ml-nlp-docker.git
-   cd ml-nlp-docker
+   git clone https://github.com/yourusername/yifan_ml_docker_lite.git
+   cd yifan_ml_docker_lite
    ```
 
 2. **Create a `workdir` Directory**
 
-   Create a directory named `workdir` in the root of your cloned repository. This directory will be mounted to the Docker container and will contain your project files.
+   In the root of your cloned repository, create a directory named `workdir`. This will be mounted to the Docker container and will contain your project files.
 
    ```bash
    mkdir workdir
@@ -36,7 +32,7 @@ Before you begin, ensure you have the following installed on your machine:
 
 3. **Build the Docker Image**
 
-   Run the following command to build the Docker image:
+   Build your Docker image by running:
 
    ```bash
    docker build -t ml-environment .
@@ -44,29 +40,29 @@ Before you begin, ensure you have the following installed on your machine:
 
 ### Running the Docker Container
 
-After building the image, you can run the Docker container using the following command:
+After building the image, run the Docker container with:
 
 ```bash
 docker run -p 8888:8888 -v $(pwd)/workdir:/app ml-environment
 ```
 
-This command does the following:
-- `-p 8888:8888`: Maps port 8888 on your local machine to port 8888 on the container, allowing you to access JupyterLab.
-- `-v $(pwd)/workdir:/app`: Mounts the `workdir` directory in your current location to `/app` in the container, so you can easily work with your project files.
+This command will:
+- Map port 8888 on your local machine to port 8888 on the container, enabling access to JupyterLab.
+- Mount the `workdir` directory at your current location to `/app` in the container, facilitating easy access to your project files.
 
 ### Accessing JupyterLab
 
-Once the container is running, you can access JupyterLab by opening your web browser and navigating to:
+Access JupyterLab by navigating to the following URL in your web browser:
 
 ```
 http://localhost:8888
 ```
 
-JupyterLab is configured to not require a token for access.
+JupyterLab is set up to not require a token for access.
 
 ### Installed Packages
 
-The Docker image comes with the following key packages pre-installed:
+The Docker image includes the following key packages pre-installed:
 
 - jupyter = "*"
 - python-dateutil = "2.9.0"
@@ -86,10 +82,10 @@ The Docker image comes with the following key packages pre-installed:
 
 ### Customizing the Environment
 
-If you need additional packages, you can modify the `Pipfile` and rebuild the Docker image:
+To add additional packages, modify the `Pipfile` and rebuild the Docker image:
 
-1. Add the package to the `[packages]` section in the `Pipfile`.
-2. Rebuild the Docker image:
+1. Add your desired package to the `[packages]` section in the `Pipfile`.
+2. Rebuild the Docker image by running:
 
    ```bash
    docker build -t ml-environment .
@@ -97,16 +93,16 @@ If you need additional packages, you can modify the `Pipfile` and rebuild the Do
 
 ### Rebuilding the Docker Image
 
-When you need to rebuild the Docker image, it's a good practice to stop and remove the old container and image first. Here is a script to automate this process:
+Use the following script to rebuild your Docker image, ensuring a clean setup:
 
 ```bash
 #!/bin/bash
 
 # Stop the running container
-docker stop ml-nlp-container
+docker stop ml-container
 
 # Remove the container
-docker rm ml-nlp-container
+docker rm ml-container
 
 # Remove the old image
 docker rmi ml-environment
@@ -115,21 +111,12 @@ docker rmi ml-environment
 docker build -t ml-environment .
 
 # Run the new container
-docker run -d --name ml-nlp-container -p 8888:8888 -v $(pwd)/workdir:/app ml-environment
+docker run -d --name ml-container -p 8888:8888 -v $(pwd)/workdir:/app ml-environment
 ```
-
-Save this script as `rebuild.sh` and run it with:
-
-```bash
-chmod +x rebuild.sh
-./rebuild.sh
-```
-
-This script automates the process of stopping, removing, rebuilding, and running the Docker container, ensuring a clean setup each time you rebuild the image.
 
 ### Contributing
 
-Feel free to open issues or submit pull requests if you have any improvements or bug fixes.
+We welcome contributions! Feel free to open issues or submit pull requests with improvements or bug fixes.
 
 ### License
 
