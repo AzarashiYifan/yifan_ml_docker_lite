@@ -18,7 +18,7 @@ Before you start, ensure you have Docker installed on your machine. You can down
    Clone this repository to your local machine:
 
    ```bash
-   git clone https://github.com/yourusername/yifan_ml_docker_lite.git
+   git clone https://github.com/azarashiyifan/yifan_ml_docker_lite.git
    cd yifan_ml_docker_lite
    ```
 
@@ -78,7 +78,7 @@ The Docker image includes the following key packages pre-installed:
 - pymatgen = "2024.5.1"
 - mp-api = "0.41.2"
 - japanize-matplotlib = "1.1.3"
-- pycaret = "3.3.2"
+- pycaret = "3.3.2" (incompatible)
 
 ### Customizing the Environment
 
