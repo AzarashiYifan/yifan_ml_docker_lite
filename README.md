@@ -15,7 +15,7 @@ Before you start, ensure you have Docker installed on your machine. You can down
 
 1. **Clone the Repository**
 
-   Clone this repository to your local machine:
+   Clone this repository to your local machine. When you clone a GitHub repository using the git clone command, the folder that is created on your local system will have the same name as the repository by default.
 
    ```bash
    git clone https://github.com/azarashiyifan/yifan_ml_docker_lite.git
@@ -43,12 +43,13 @@ Before you start, ensure you have Docker installed on your machine. You can down
 After building the image, run the Docker container with:
 
 ```bash
-docker run -p 8888:8888 -v $(pwd)/workdir:/app ml-environment
+docker run -d --name ml-container -p 8888:8888 -v $(pwd)/workdir:/app ml-environment
 ```
 
 This command will:
 - Map port 8888 on your local machine to port 8888 on the container, enabling access to JupyterLab.
 - Mount the `workdir` directory at your current location to `/app` in the container, facilitating easy access to your project files.
+- Name the container ml-container for consistency.
 
 ### Accessing JupyterLab
 
