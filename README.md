@@ -35,7 +35,7 @@ Before you start, ensure you have Docker installed on your machine. You can down
    Build your Docker image by running:
 
    ```bash
-   docker build -t ml-environment .
+   docker build -t yifan_ml_docker_lite .
    ```
 
 ### Running the Docker Container
@@ -43,13 +43,13 @@ Before you start, ensure you have Docker installed on your machine. You can down
 After building the image, run the Docker container with:
 
 ```bash
-docker run -d --name ml-container -p 8888:8888 -v $(pwd)/workdir:/app ml-environment
+docker run -d --name yifan_ml_docker_lite_container -p 8888:8888 -v $(pwd)/workdir:/app yifan_ml_docker_lite
 ```
 
 This command will:
 - Map port 8888 on your local machine to port 8888 on the container, enabling access to JupyterLab.
 - Mount the `workdir` directory at your current location to `/app` in the container, facilitating easy access to your project files.
-- Name the container ml-container for consistency.
+- Name the container yifan_ml_docker_lite_container for consistency.
 
 ### Accessing JupyterLab
 
@@ -79,7 +79,7 @@ The Docker image includes the following key packages pre-installed:
 - pymatgen = "2024.5.1"
 - mp-api = "0.41.2"
 - japanize-matplotlib = "1.1.3"
-- pycaret = "3.3.2" (incompatible)
+- shap = "0.46.0"
 
 ### Customizing the Environment
 
@@ -89,7 +89,7 @@ To add additional packages, modify the `Pipfile` and rebuild the Docker image:
 2. Rebuild the Docker image by running:
 
    ```bash
-   docker build -t ml-environment .
+   docker build -t yifan_ml_docker_lite .
    ```
 
 ### Rebuilding the Docker Image
@@ -100,19 +100,19 @@ Use the following script to rebuild your Docker image, ensuring a clean setup:
 #!/bin/bash
 
 # Stop the running container
-docker stop ml-container
+docker stop yifan_ml_docker_lite_container
 
 # Remove the container
-docker rm ml-container
+docker rm yifan_ml_docker_lite_container
 
 # Remove the old image
-docker rmi ml-environment
+docker rmi yifan_ml_docker_lite
 
 # Rebuild the Docker image
-docker build -t ml-environment .
+docker build -t yifan_ml_docker_lite .
 
 # Run the new container
-docker run -d --name ml-container -p 8888:8888 -v $(pwd)/workdir:/app ml-environment
+docker run -d --name yifan_ml_docker_lite_container -p 8888:8888 -v $(pwd)/workdir:/app yifan_ml_docker_lite
 ```
 
 ### Contributing
