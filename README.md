@@ -65,21 +65,25 @@ JupyterLab is set up to not require a token for access.
 
 The Docker image includes the following key packages pre-installed:
 
-- jupyter = "*"
-- python-dateutil = "2.9.0"
-- requests = "2.32.2"
-- matplotlib = "3.9.0"
-- pandas = "2.2.2"
-- numpy = "1.26.4"
-- joblib = "1.4.2"
-- scipy = "1.12.0"
-- seaborn = "0.13.2"
-- scikit-learn = "1.5.0"
-- threadpoolctl = "3.5.0"
-- pymatgen = "2024.5.1"
-- mp-api = "0.41.2"
-- japanize-matplotlib = "1.1.3"
-- shap = "0.46.0"
+jupyter = "*"
+python-dateutil = "2.9.0"
+requests = "2.32.3"
+matplotlib = "3.7.5"
+pandas = "2.1.4"
+numpy = "1.26.4"
+joblib = "1.3.2"
+scipy = "1.11.4"
+seaborn = "0.13.2"
+scikit-learn = "1.4.2"
+threadpoolctl = "3.5.0"
+pymatgen = "2024.5.1"
+mp-api = "0.41.2"
+japanize-matplotlib = "1.1.3"
+shap = "0.46.0"
+matminer = "0.9.2"
+imbalanced-learn = "0.12.4"
+
+pycaret = "3.3.2"
 
 ### Customizing the Environment
 
